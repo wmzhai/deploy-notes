@@ -91,7 +91,7 @@
 
 然后在命令行执行如下指令下载部署用项目，项目有点大，稍微等一段时间
 
-	meteor@ubuntu:~$ git clone https://github.com/wmzhai/setup-meteor-machine.git
+	meteor@ubuntu:~$ git clone https://github.com/wmzhai/meteor-deploy-guide.git
 
 ![](images/clone-this.png)
 
