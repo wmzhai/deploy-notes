@@ -1,4 +1,4 @@
-# Meteor环境安装指南
+# Meteor部署指南
 
 
 1. [Ubuntu单机开发部署环境安装](setup-meteor-machine.md)
