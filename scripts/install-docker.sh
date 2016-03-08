@@ -22,5 +22,5 @@ if [ ! "$haveDocker" ]; then
   sudo apt-get update
 
   # Install docker
-  sudo apt-get install docker-engine
+  sudo apt-get install docker-engine -y
 fi
