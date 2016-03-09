@@ -1,19 +1,20 @@
 #!/bin/bash
 
-# Remove the lock
+set -e
+# we use this data directory for the backward compatibility
+# older mup uses mongodb from apt-get and they used this data directory
+sudo mkdir -p /var/lib/mongodb
+
+sudo docker pull daocloud.io/mongo:latest
 set +e
-sudo rm /var/lib/dpkg/lock
-sudo rm /var/cache/apt/archives/lock
-sudo dpkg --configure -a
+sudo docker rm -f mongodb
 set -e
 
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
-echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
-sudo apt-get update -y
-sudo apt-get install -y mongodb-org
-
-# Restart mongodb
-sudo service mongod start
-
-# display mongo version to see if we are ok
-mongo --version
+sudo docker run \
+  -d \
+  --restart=always \
+  --publish=127.0.0.1:27017:27017 \
+  --volume=/var/lib/mongodb:/data/db \
+  --volume=/opt/mongodb/mongodb.conf:/mongodb.conf \
+  --name=mongodb \
+  mongo mongod -f /mongodb.conf
