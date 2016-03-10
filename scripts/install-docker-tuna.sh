@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # 查看docker是否已经安装
-set +e
+set +e  # 如果一个指令返回非零状态，仍然继续运行，因为下面这个语句可能会错
 haveDocker=$(docker version | grep "version")
 set -e  # 如果一个指令返回非零状态，则退出
 
