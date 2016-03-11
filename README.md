@@ -1,16 +1,14 @@
 # Meteor部署指南
 
 
-##  Toy Deploy
-```sh
-meteor deploy appname.meteor.com
-```
+## mupx
+https://github.com/arunoda/meteor-up/tree/mupx
 
-## Mup Deploy
-https://github.com/arunoda/meteor-up
+## meteor-up
+https://github.com/kadirahq/meteor-up
 
-## Meteord Deploy
+## meteord
 https://github.com/meteorhacks/meteord
 
-## Cluster Deploy
+## cluster
 https://github.com/meteorhacks/cluster
